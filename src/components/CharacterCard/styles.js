@@ -4,6 +4,7 @@ export default css`
   display: flex;
   color: var(--white);
   max-width: 60rem;
+  width: 100%;
   height: 22rem;
   background-color: var(--gray-secondary);
   border-radius: var(--border-ratio-md);

@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 export default css`
   display: grid;
   grid-template-columns: 1fr;
+  justify-items: center;
   grid-gap: var(--spacing-ratio-lg);
   background-color: var(--gray-primary);
   max-width: 1200px;
