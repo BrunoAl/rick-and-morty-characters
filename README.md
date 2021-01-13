@@ -5,6 +5,7 @@
 ```sh
     to run the project: yarn && yarn start
     to run the tests: yarn test
+    deployed version: https://zen-jones-533c85.netlify.app/
 ```
 
 ## What would I change if had more time
