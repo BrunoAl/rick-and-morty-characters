@@ -6,11 +6,14 @@
   --gray-light: rgb(158, 158, 158);
 
   --white: rgb(245, 245, 245);
+  --green: rgba(82, 110, 45, 1);
 
   /* Font sizes */
-  --font-size-xlg: 10rem;
-  --font-size-lg: 2.4rem;
+  --font-size-xm: 0.8rem;
+  --font-size-sm: 1.2rem;
   --font-size-md: 1.5rem;
+  --font-size-lg: 2.4rem;
+  --font-size-xlg: 8rem;
 
   /* Spacing ratios */
   --spacing-ratio-sm: 0.8rem;
