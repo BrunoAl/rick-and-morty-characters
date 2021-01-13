@@ -12,6 +12,7 @@
 
 - Create a better UI for the form to search the characters, maybe a tab component to render which one separately.
 - Mock every API call and build integration tests to handle the search forms and characters list.
+- Paginate the character list.
 
 ## About the Plumbus
 
