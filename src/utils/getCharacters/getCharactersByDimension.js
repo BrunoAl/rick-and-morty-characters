@@ -1,20 +1,20 @@
-import fetchAPI from '../utils/fetchAPI';
-import getCharactersIdFromUrls from './getCharactersIdFromUrls';
-import { actionTypes } from './getDataReducer';
-import serializeResults from './serializeResultFromAPI';
+import fetchAPI from '../fetchAPI';
+import getCharactersIdFromUrls from '../getCharactersIdFromUrls';
+import { actionTypes } from '../getDataReducer';
+import serializeResults from '../serializeResultFromAPI';
 
 /**
- * Fetches characters by location
- * @param {string} locationName - name of the location
+ * Fetches characters by dimension
+ * @param {string} dimensionName - name of the dimension
  * @param {func} dispatch - useReducer dispatch function to update the application state
  */
-export default function useGetCharactersByLocation(locationName, dispatch) {
-  if (!locationName) return;
+export default function getCharactersByDimension(dimensionName, dispatch) {
+  if (!dimensionName) return;
   dispatch({ type: actionTypes.start });
-  fetchAPI(`/location?name=${locationName}`)
+  fetchAPI(`/location?dimension=${dimensionName}`)
     .then(data => {
       const residents = data?.results[0]?.residents;
-      if (!data || !residents) throw new Error('Empty response');
+      if (!data || !residents) throw new Error('Empty resonse');
       const charactersId = getCharactersIdFromUrls(residents);
 
       fetchAPI(`/character/${charactersId.join(',')}`)

@@ -1,7 +1,7 @@
-import fetchAPI from '../utils/fetchAPI';
-import getCharactersIdFromUrls from './getCharactersIdFromUrls';
-import { actionTypes } from './getDataReducer';
-import serializeResults from './serializeResultFromAPI';
+import fetchAPI from '../fetchAPI';
+import getCharactersIdFromUrls from '../getCharactersIdFromUrls';
+import { actionTypes } from '../getDataReducer';
+import serializeResults from '../serializeResultFromAPI';
 
 /**
  * Fetches characters by episode

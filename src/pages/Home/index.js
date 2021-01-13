@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import CharactersList from '../../components/CharactersList';
 import CharactersSearchForm from '../../components/CharactersSearchForm';
 import getDataReducer, { statusTypes, actionTypes } from '../../utils/getDataReducer';
-import { getCharactersByDimension, getCharactersByEpisode, getCharactersByLocation } from '../../utils';
+import { getCharactersByDimension, getCharactersByEpisode, getCharactersByLocation } from '../../utils/getCharacters';
 import styles from './styles';
 import 'styled-components/macro';
 
