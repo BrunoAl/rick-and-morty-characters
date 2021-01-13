@@ -5,7 +5,7 @@ export default css`
   color: var(--white);
   max-width: 60rem;
   width: 100%;
-  height: 22rem;
+  height: 26rem;
   background-color: var(--gray-secondary);
   border-radius: var(--border-ratio-md);
   overflow: hidden;
@@ -13,7 +13,7 @@ export default css`
 
   .card {
     &__image img {
-      width: 22rem;
+      width: 26rem;
     }
 
     &__info {
