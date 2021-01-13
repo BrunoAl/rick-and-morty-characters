@@ -6,7 +6,8 @@ export default css`
   justify-content: center;
   align-items: center;
   background-color: white;
-  h1 {
+
+  .title {
     position: absolute;
     font-size: var(--font-size-xlg);
     font-weight: 900;
