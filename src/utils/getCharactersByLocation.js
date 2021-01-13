@@ -9,11 +9,13 @@ import serializeResults from './serializeResultFromAPI';
  * @param {func} dispatch - useReducer dispatch function to update the application state
  */
 export default function useGetCharactersByLocation(locationName, dispatch) {
+  if (!locationName) return;
   dispatch({ type: actionTypes.start });
   fetchAPI(`/location?name=${locationName}`)
     .then(data => {
-      if (!data || !data?.results[0]?.residents) throw new Error('Empty response');
-      const charactersId = getCharactersIdFromUrls(data?.results[0]?.residents);
+      const residents = data?.results[0]?.residents;
+      if (!data || !residents) throw new Error('Empty response');
+      const charactersId = getCharactersIdFromUrls(residents);
 
       fetchAPI(`/character/${charactersId.join(',')}`)
         .then(charactersData => {

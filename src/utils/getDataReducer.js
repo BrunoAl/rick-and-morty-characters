@@ -2,6 +2,7 @@ export const actionTypes = {
   error: 'ERROR',
   success: 'SUCCESS',
   start: 'START',
+  initialState: 'INITIAL_STATE',
 };
 
 export const statusTypes = {
@@ -37,6 +38,14 @@ export default function getDataReducer(state, action) {
       return {
         ...state,
         status: statusTypes.pending,
+      };
+    }
+    case actionTypes.initialState: {
+      return {
+        ...state,
+        status: statusTypes.idle,
+        data: null,
+        error: null,
       };
     }
     default: {

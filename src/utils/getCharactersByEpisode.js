@@ -9,11 +9,13 @@ import serializeResults from './serializeResultFromAPI';
  * @param {func} dispatch - useReducer dispatch function to update the application state
  */
 export default function useGetCharactersByEpisode(episodeName, dispatch) {
+  if (!episodeName) return;
   dispatch({ type: actionTypes.start });
   fetchAPI(`/episode?name=${episodeName}`)
     .then(data => {
-      if (!data || !data?.results[0]?.characters) throw new Error('Empty response');
-      const charactersId = getCharactersIdFromUrls(data?.results[0]?.characters);
+      const characters = data?.results[0]?.characters;
+      if (!characters) throw new Error('Empty response');
+      const charactersId = getCharactersIdFromUrls(characters);
 
       fetchAPI(`/character/${charactersId.join(',')}`)
         .then(charactersData => {

@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import CharactersList from '../../components/CharactersList';
 import CharactersSearchForm from '../../components/CharactersSearchForm';
-import getDataReducer, { statusTypes } from '../../utils/getDataReducer';
+import getDataReducer, { statusTypes, actionTypes } from '../../utils/getDataReducer';
 import { getCharactersByDimension, getCharactersByEpisode, getCharactersByLocation } from '../../utils';
 import styles from './styles';
 import 'styled-components/macro';
@@ -19,18 +19,25 @@ export default function Home() {
     error: null,
   });
 
+  function resetSearchState() {
+    dispatchSearch({ type: actionTypes.initialState });
+  }
+
   function onSubmitLocation(e) {
     e.preventDefault();
+    resetSearchState();
     getCharactersByLocation(locationField, dispatchSearch);
     setcharactersListTitle(`Characters seen at ${locationField}`);
   }
   function onSubmitDimension(e) {
     e.preventDefault();
+    resetSearchState();
     getCharactersByDimension(dimensionField, dispatchSearch);
     setcharactersListTitle(`Characters seen in ${dimensionField}`);
   }
   function onSubmitEpisode(e) {
     e.preventDefault();
+    resetSearchState();
     getCharactersByEpisode(episodeField, dispatchSearch);
     setcharactersListTitle(`Characters seen in the ${episodeField} episode`);
   }

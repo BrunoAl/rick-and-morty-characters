@@ -9,11 +9,13 @@ import serializeResults from './serializeResultFromAPI';
  * @param {func} dispatch - useReducer dispatch function to update the application state
  */
 export default function getCharactersByDimension(dimensionName, dispatch) {
+  if (!dimensionName) return;
   dispatch({ type: actionTypes.start });
   fetchAPI(`/location?dimension=${dimensionName}`)
     .then(data => {
-      if (!data || !data?.results[0]?.residents) throw new Error('Empty resonse');
-      const charactersId = getCharactersIdFromUrls(data?.results[0]?.residents);
+      const residents = data?.results[0]?.residents;
+      if (!data || !residents) throw new Error('Empty resonse');
+      const charactersId = getCharactersIdFromUrls(residents);
 
       fetchAPI(`/character/${charactersId.join(',')}`)
         .then(charactersData => {
