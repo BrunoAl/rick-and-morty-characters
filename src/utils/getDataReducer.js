@@ -4,26 +4,33 @@ export const actionTypes = {
   start: 'START',
 };
 
+export const statusTypes = {
+  rejected: 'REJECTED',
+  resolved: 'RESOLVED',
+  pending: 'PENDING',
+  idle: 'IDLE',
+};
+
 export default function getDataReducer(state, action) {
   switch (action.type) {
     case actionTypes.error: {
       return {
         ...state,
-        status: 'rejected',
+        status: statusTypes.rejected,
         error: action.error,
       };
     }
     case actionTypes.success: {
       return {
         ...state,
-        status: 'resolved',
+        status: statusTypes.resolved,
         data: action.results,
       };
     }
     case actionTypes.start: {
       return {
         ...state,
-        status: 'pending',
+        status: statusTypes.pending,
       };
     }
     default: {

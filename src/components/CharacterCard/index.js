@@ -11,6 +11,10 @@ Section.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+/**
+ * Renders character card
+ * @param {*} params - Character info
+ */
 function CharacterCard({ gender, image, name, species, origin, status, location }) {
   return (
     <article css={styles}>
@@ -18,7 +22,7 @@ function CharacterCard({ gender, image, name, species, origin, status, location 
         <img src={image} alt={name} />
       </div>
       <div className="card__info">
-        <h3>{name}</h3>
+        <h3 className="card__name">{name}</h3>
         <span className="card__status">{`${status} - ${species}`}</span>
         <Section>
           <span className="card__info-section-title">Last known location:</span>

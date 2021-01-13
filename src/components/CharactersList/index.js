@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CharacterCard from '../CharacterCard';
+import { statusTypes } from '../../utils/getDataReducer';
 import { listStyles, messageStyles } from './styles';
 import 'styled-components/macro';
 
+/**
+ * Renders message regarding the request status
+ * @param {string} children - message
+ */
 function Message({ children }) {
   return (
     <div css={messageStyles}>
-      <h2>{children}</h2>
+      <h2 className="message">{children}</h2>
     </div>
   );
 }
 
 Message.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 function List({ characters, title }) {
@@ -34,19 +39,25 @@ List.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
+/**
+ * Renders characters list or message (loading, error, etc)
+ * @param {array} characters - list of characters
+ * @param {string} status - request status
+ * @param {string} title - list title
+ */
 export default function CharactersList({ characters, status, title }) {
   switch (status) {
-    case 'idle':
+    case statusTypes.idle:
       return <Message>Make a search to see the characters</Message>;
-    case 'rejected':
+    case statusTypes.rejected:
       return (
         <Message>
           Oh no! There was an error fetching the characters. Make sure to use a valid terms in the search fields
         </Message>
       );
-    case 'pending':
+    case statusTypes.pending:
       return <Message>Loading characters...</Message>;
-    case 'resolved':
+    case statusTypes.resolved:
       return <List characters={characters} title={title} />;
     default:
       throw new Error(`Unhandled status type: ${status}`);
@@ -60,5 +71,6 @@ CharactersList.propTypes = {
     }),
   ).isRequired,
   title: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
+  status: PropTypes.oneOf([statusTypes.idle, statusTypes.rejected, statusTypes.pending, statusTypes.resolved])
+    .isRequired,
 };

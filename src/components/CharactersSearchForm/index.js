@@ -3,6 +3,15 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 import 'styled-components/macro';
 
+/**
+ * Renders character search form
+ * @param {string} label - input label
+ * @param {string} buttonText - button text
+ * @param {func} onSubmit - submit function
+ * @param {func} onChange - input field change handler
+ * @param {string} value - input value
+ * @param {string} inputExample - input example text
+ */
 export default function CharactersSearchForm({ label, buttonText, onSubmit, onChange, value, inputExample }) {
   const id = label.replace(/\s/g, '');
   return (
@@ -11,7 +20,6 @@ export default function CharactersSearchForm({ label, buttonText, onSubmit, onCh
       {inputExample && <p className="form__input-example">{inputExample}</p>}
       <input
         type="text"
-        placeholder="Dimension C-137"
         name={id}
         id={id}
         onChange={e => e.preventDefault && onChange(e.target.value)}

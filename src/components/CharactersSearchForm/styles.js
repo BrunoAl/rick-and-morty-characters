@@ -26,7 +26,7 @@ export default css`
       height: 4rem;
       width: 14rem;
       background-color: var(--gray-secondary);
-      border-radius: 2.4rem;
+      border-radius: var(--border-ratio-lg);
       border: none;
       color: var(--white);
       font-size: var(--font-size-md);
@@ -44,19 +44,17 @@ export default css`
       width: 100%;
       border: 0;
       border-bottom: 2px solid var(--green);
-      outline: 0;
-      font-size: 1.3rem;
+      font-size: var(--font-size-md);
       color: var(--white);
       padding: 7px 0;
       background: transparent;
-      transition: border-color 0.2s;
 
       &::placeholder {
         color: transparent;
       }
 
       &:placeholder-shown ~ .form__label {
-        font-size: 1.3rem;
+        font-size: var(--font-size-md);
         cursor: text;
         top: 20px;
       }

@@ -20,17 +20,17 @@ export default css`
       margin-left: var(--spacing-ratio-lg);
       font-size: var(--font-size-md);
 
-      h3 {
-        font-size: var(--font-size-lg);
-        font-weight: 900;
-        margin-bottom: 0;
-        margin-top: var(--spacing-ratio-md);
-      }
-
       &-section-title {
         color: var(--gray-light);
         display: block;
       }
+    }
+
+    &__name {
+      font-size: var(--font-size-lg);
+      font-weight: 900;
+      margin-bottom: 0;
+      margin-top: var(--spacing-ratio-md);
     }
 
     &__status {

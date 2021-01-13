@@ -31,7 +31,7 @@ export const messageStyles = css`
   font-size: var(--font-size-lg);
   position: relative;
 
-  h2 {
+  .message {
     flex: 1;
     position: absolute;
     top: 50%;

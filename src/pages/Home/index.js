@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import CharactersList from '../../components/CharactersList';
 import CharactersSearchForm from '../../components/CharactersSearchForm';
-import getDataReducer from '../../utils/getDataReducer';
+import getDataReducer, { statusTypes } from '../../utils/getDataReducer';
 import { getCharactersByDimension, getCharactersByEpisode, getCharactersByLocation } from '../../utils';
 import styles from './styles';
 import 'styled-components/macro';
@@ -14,7 +14,7 @@ export default function Home() {
   const [charactersListTitle, setcharactersListTitle] = React.useState('');
 
   const [searchState, dispatchSearch] = React.useReducer(getDataReducer, {
-    status: 'idle',
+    status: statusTypes.idle,
     data: null,
     error: null,
   });
