@@ -1,16 +1,16 @@
 import fetchAPI from '../utils/fetchAPI';
 import getCharactersIdFromUrls from './getCharactersIdFromUrls';
 import { actionTypes } from './getDataReducer';
+import serializeResults from './serializeResultFromAPI';
 
-function serializeResults(results) {
-  if (!Array.isArray(results)) {
-    return [results];
-  }
-  return results;
-}
-export default function useGetCharactersByLocation(episodeName, dispatch) {
+/**
+ * Fetches characters by location
+ * @param {string} locationName - name of the location
+ * @param {func} dispatch - useReducer dispatch function to update the application state
+ */
+export default function useGetCharactersByLocation(locationName, dispatch) {
   dispatch({ type: actionTypes.start });
-  fetchAPI(`/location?name=${episodeName}`)
+  fetchAPI(`/location?name=${locationName}`)
     .then(data => {
       if (!data || !data?.results[0]?.residents) throw new Error('Empty response');
       const charactersId = getCharactersIdFromUrls(data?.results[0]?.residents);

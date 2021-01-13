@@ -11,6 +11,12 @@ export const statusTypes = {
   idle: 'IDLE',
 };
 
+/**
+ * Reducer function to manage application state
+ * @param {object} state - initial state
+ * @param {object} action
+ * @return {object} - updated state
+ */
 export default function getDataReducer(state, action) {
   switch (action.type) {
     case actionTypes.error: {
