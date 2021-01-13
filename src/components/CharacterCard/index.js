@@ -18,7 +18,7 @@ function CharacterCard({ gender, image, name, species, origin, status, location 
         <img src={image} alt={name} />
       </div>
       <div className="card__info">
-        <h2>{name}</h2>
+        <h3>{name}</h3>
         <span className="card__status">{`${status} - ${species}`}</span>
         <Section>
           <span className="card__info-section-title">Last known location:</span>

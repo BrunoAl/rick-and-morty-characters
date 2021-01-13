@@ -20,7 +20,7 @@ export default css`
       margin-left: var(--spacing-ratio-lg);
       font-size: var(--font-size-md);
 
-      h2 {
+      h3 {
         font-size: var(--font-size-lg);
         font-weight: 900;
         margin-bottom: 0;
