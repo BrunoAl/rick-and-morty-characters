@@ -23,23 +23,20 @@ export default function Home() {
     dispatchSearch({ type: actionTypes.initialState });
   }
 
-  function onSubmitLocation(e) {
-    e.preventDefault();
+  function onSubmitLocation(location) {
     resetSearchState();
-    getCharactersByLocation(locationField, dispatchSearch);
-    setcharactersListTitle(`Characters seen at ${locationField}`);
+    getCharactersByLocation(location, dispatchSearch);
+    setcharactersListTitle(`Characters seen at ${location}`);
   }
-  function onSubmitDimension(e) {
-    e.preventDefault();
+  function onSubmitDimension(dimension) {
     resetSearchState();
-    getCharactersByDimension(dimensionField, dispatchSearch);
-    setcharactersListTitle(`Characters seen in ${dimensionField}`);
+    getCharactersByDimension(dimension, dispatchSearch);
+    setcharactersListTitle(`Characters seen in ${dimension}`);
   }
-  function onSubmitEpisode(e) {
-    e.preventDefault();
+  function onSubmitEpisode(episode) {
     resetSearchState();
-    getCharactersByEpisode(episodeField, dispatchSearch);
-    setcharactersListTitle(`Characters seen in the ${episodeField} episode`);
+    getCharactersByEpisode(episode, dispatchSearch);
+    setcharactersListTitle(`Characters seen in the ${episode} episode`);
   }
 
   function renderSearchForms() {

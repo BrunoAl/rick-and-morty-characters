@@ -14,18 +14,22 @@ import 'styled-components/macro';
  */
 export default function CharactersSearchForm({ label, buttonText, onSubmit, onChange, value, inputExample }) {
   const id = label.replace(/\s/g, '');
+
+  function handleChange(event) {
+    event.preventDefault();
+    onChange(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onSubmit(value);
+  }
+
   return (
-    <form css={styles} onSubmit={onSubmit}>
+    <form css={styles} onSubmit={handleSubmit}>
       <label htmlFor={id}>{label}</label>
       {inputExample && <p className="form__input-example">{inputExample}</p>}
-      <input
-        type="text"
-        name={id}
-        id={id}
-        onChange={e => e.preventDefault && onChange(e.target.value)}
-        value={value}
-        className="form__input"
-      />
+      <input type="text" name={id} id={id} onChange={handleChange} value={value} className="form__input" />
       <button type="submit" className="form__submit-button">
         {buttonText}
       </button>
