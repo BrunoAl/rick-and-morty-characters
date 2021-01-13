@@ -11,6 +11,7 @@ export default function Home() {
   const [locationField, setLocationField] = React.useState('');
   const [dimensionField, setDimensionField] = React.useState('');
   const [episodeField, setEpisodeField] = React.useState('');
+  const [charactersListTitle, setcharactersListTitle] = React.useState('');
 
   const [state, dispatch] = React.useReducer(getDataReducer, {
     status: 'idle',
@@ -18,26 +19,20 @@ export default function Home() {
     error: null,
   });
 
-  function emptyFormInputs() {
-    setLocationField('');
-    setDimensionField('');
-    setEpisodeField('');
-  }
-
   function onSubmitLocation(e) {
     e.preventDefault();
     getCharactersByLocation(locationField, dispatch);
-    emptyFormInputs();
+    setcharactersListTitle(`Characters seen at ${locationField}`);
   }
   function onSubmitDimension(e) {
     e.preventDefault();
     getCharactersByDimension(dimensionField, dispatch);
-    emptyFormInputs();
+    setcharactersListTitle(`Characters seen in ${dimensionField}`);
   }
   function onSubmitEpisode(e) {
     e.preventDefault();
     getCharactersByEpisode(episodeField, dispatch);
-    emptyFormInputs();
+    setcharactersListTitle(`Characters seen in the ${episodeField} episode`);
   }
 
   function renderSearchForms() {
@@ -72,7 +67,7 @@ export default function Home() {
     <div css={styles}>
       <Header>Schwifty Searcher</Header>
       {renderSearchForms()}
-      <CharactersList characters={state.data} status={state.status} />
+      <CharactersList characters={state.data} title={charactersListTitle} status={state.status} />
     </div>
   );
 }
