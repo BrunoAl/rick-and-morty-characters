@@ -11,7 +11,7 @@ export default function Home() {
   const [locationField, setLocationField] = React.useState('');
   const [dimensionField, setDimensionField] = React.useState('');
   const [episodeField, setEpisodeField] = React.useState('');
-  const [charactersListTitle, setcharactersListTitle] = React.useState('');
+  const [charactersListTitle, setCharactersListTitle] = React.useState('');
 
   const [searchState, dispatchSearch] = React.useReducer(getDataReducer, {
     status: statusTypes.idle,
@@ -26,17 +26,17 @@ export default function Home() {
   function onSubmitLocation(location) {
     resetSearchState();
     getCharactersByLocation(location, dispatchSearch);
-    setcharactersListTitle(`Characters seen at ${location}`);
+    setCharactersListTitle(`Characters seen at ${location}`);
   }
   function onSubmitDimension(dimension) {
     resetSearchState();
     getCharactersByDimension(dimension, dispatchSearch);
-    setcharactersListTitle(`Characters seen in ${dimension}`);
+    setCharactersListTitle(`Characters seen in ${dimension}`);
   }
   function onSubmitEpisode(episode) {
     resetSearchState();
     getCharactersByEpisode(episode, dispatchSearch);
-    setcharactersListTitle(`Characters seen in the ${episode} episode`);
+    setCharactersListTitle(`Characters seen in the ${episode} episode`);
   }
 
   function renderSearchForms() {

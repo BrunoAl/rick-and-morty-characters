@@ -13,6 +13,7 @@
 - Create a better UI for the form to search the characters, maybe a tab component to render which one separately.
 - Mock every API call and build integration tests to handle the search forms and characters list.
 - Paginate the character list.
+- There's not enough contrast between the colors, since this is a important for a11y, I would have chosen different colors for a production website
 
 ## About the Plumbus
 
