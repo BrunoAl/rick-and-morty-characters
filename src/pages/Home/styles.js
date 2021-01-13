@@ -9,6 +9,7 @@ export default css`
     margin: var(--spacing-ratio-lg) 0;
     border-bottom: 1px solid var(--gray-light);
     padding-bottom: var(--spacing-ratio-lg);
+
     form {
       margin-bottom: var(--spacing-ratio-xl);
       :last-item {
@@ -18,6 +19,7 @@ export default css`
 
     @media (min-width: 768px) {
       flex-direction: row;
+
       form {
         margin-bottom: 0;
       }

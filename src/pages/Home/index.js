@@ -13,7 +13,7 @@ export default function Home() {
   const [episodeField, setEpisodeField] = React.useState('');
   const [charactersListTitle, setcharactersListTitle] = React.useState('');
 
-  const [state, dispatch] = React.useReducer(getDataReducer, {
+  const [searchState, dispatchSearch] = React.useReducer(getDataReducer, {
     status: 'idle',
     data: null,
     error: null,
@@ -21,17 +21,17 @@ export default function Home() {
 
   function onSubmitLocation(e) {
     e.preventDefault();
-    getCharactersByLocation(locationField, dispatch);
+    getCharactersByLocation(locationField, dispatchSearch);
     setcharactersListTitle(`Characters seen at ${locationField}`);
   }
   function onSubmitDimension(e) {
     e.preventDefault();
-    getCharactersByDimension(dimensionField, dispatch);
+    getCharactersByDimension(dimensionField, dispatchSearch);
     setcharactersListTitle(`Characters seen in ${dimensionField}`);
   }
   function onSubmitEpisode(e) {
     e.preventDefault();
-    getCharactersByEpisode(episodeField, dispatch);
+    getCharactersByEpisode(episodeField, dispatchSearch);
     setcharactersListTitle(`Characters seen in the ${episodeField} episode`);
   }
 
@@ -67,7 +67,7 @@ export default function Home() {
     <div css={styles}>
       <Header>Schwifty Searcher</Header>
       {renderSearchForms()}
-      <CharactersList characters={state.data} title={charactersListTitle} status={state.status} />
+      <CharactersList characters={searchState.data} title={charactersListTitle} status={searchState.status} />
     </div>
   );
 }
