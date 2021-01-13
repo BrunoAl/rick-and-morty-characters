@@ -1,5 +1,6 @@
 import fetchAPI from '../utils/fetchAPI';
 import getCharactersIdFromUrls from './getCharactersIdFromUrls';
+import { actionTypes } from './getDataReducer';
 
 function serializeResults(results) {
   if (!Array.isArray(results)) {
@@ -8,7 +9,7 @@ function serializeResults(results) {
   return results;
 }
 export default function useGetCharactersByLocation(episodeName, dispatch) {
-  dispatch({ type: 'start' });
+  dispatch({ type: actionTypes.start });
   fetchAPI(`/location?name=${episodeName}`)
     .then(data => {
       if (!data || !data?.results[0]?.residents) throw new Error('Empty response');
@@ -17,9 +18,9 @@ export default function useGetCharactersByLocation(episodeName, dispatch) {
       fetchAPI(`/character/${charactersId.join(',')}`)
         .then(charactersData => {
           if (!charactersData) throw new Error('Failed to fetch characters');
-          dispatch({ type: 'success', results: serializeResults(charactersData) });
+          dispatch({ type: actionTypes.success, results: serializeResults(charactersData) });
         })
-        .catch(error => dispatch({ type: 'error', error }));
+        .catch(error => dispatch({ type: actionTypes.error, error }));
     })
-    .catch(error => dispatch({ type: 'error', error }));
+    .catch(error => dispatch({ type: actionTypes.error, error }));
 }

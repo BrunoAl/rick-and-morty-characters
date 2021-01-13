@@ -1,8 +1,9 @@
 import fetchAPI from '../utils/fetchAPI';
 import getCharactersIdFromUrls from './getCharactersIdFromUrls';
+import { actionTypes } from './getDataReducer';
 
 export default function getCharactersByDimension(dimensionName, dispatch) {
-  dispatch({ type: 'start' });
+  dispatch({ type: actionTypes.start });
   fetchAPI(`/location?dimension=${dimensionName}`)
     .then(data => {
       if (!data || !data?.results[0]?.residents) throw new Error('Empty resonse');
@@ -11,9 +12,9 @@ export default function getCharactersByDimension(dimensionName, dispatch) {
       fetchAPI(`/character/${charactersId.join(',')}`)
         .then(charactersData => {
           if (!charactersData) throw new Error('Failed to fetch characters');
-          dispatch({ type: 'success', results: charactersData });
+          dispatch({ type: actionTypes.success, results: charactersData });
         })
-        .catch(error => dispatch({ type: 'error', error }));
+        .catch(error => dispatch({ type: actionTypes.error, error }));
     })
-    .catch(error => dispatch({ type: 'error', error }));
+    .catch(error => dispatch({ type: actionTypes.error, error }));
 }
