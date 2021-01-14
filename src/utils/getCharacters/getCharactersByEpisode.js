@@ -14,7 +14,7 @@ export default function useGetCharactersByEpisode(episodeName, dispatch) {
   fetchAPI(`/episode?name=${episodeName}`)
     .then(data => {
       const characters = data?.results[0]?.characters;
-      if (!characters) throw new Error('Empty response');
+      if (!characters || characters.length === 0) throw new Error('Empty response');
       const charactersId = getCharactersIdFromUrls(characters);
 
       fetchAPI(`/character/${charactersId.join(',')}`)

@@ -14,7 +14,7 @@ export default function useGetCharactersByLocation(locationName, dispatch) {
   fetchAPI(`/location?name=${locationName}`)
     .then(data => {
       const residents = data?.results[0]?.residents;
-      if (!data || !residents) throw new Error('Empty response');
+      if (!residents || residents.length === 0) throw new Error('Empty response');
       const charactersId = getCharactersIdFromUrls(residents);
 
       fetchAPI(`/character/${charactersId.join(',')}`)
