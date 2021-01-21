@@ -7,5 +7,8 @@
     "no-use-before-define": "off",
     "jsx-a11y/anchor-is-valid": ["warn"]
   },
-  "plugins": ["jsx-a11y"]
+  "plugins": ["jsx-a11y"],
+  "env": {
+    "jest": true
+  }
 }
