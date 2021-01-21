@@ -2,7 +2,7 @@ import getDataReducer, { actionTypes, statusTypes } from './getDataReducer';
 
 const initialState = {
   status: statusTypes.initialState,
-  data: null,
+  data: [],
   error: null,
 };
 
