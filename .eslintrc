@@ -5,7 +5,11 @@
     "no-console": ["warn"],
     "react/prop-types": ["warn"],
     "no-use-before-define": "off",
-    "jsx-a11y/anchor-is-valid": ["warn"]
+    "jsx-a11y/anchor-is-valid": ["warn"],
+    "import/extensions": {
+      "js": "always",
+      "json": "always"
+    }
   },
   "plugins": ["jsx-a11y"],
   "env": {
