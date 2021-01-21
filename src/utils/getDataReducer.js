@@ -44,7 +44,7 @@ export default function getDataReducer(state, action) {
       return {
         ...state,
         status: statusTypes.idle,
-        data: null,
+        data: [],
         error: null,
       };
     }

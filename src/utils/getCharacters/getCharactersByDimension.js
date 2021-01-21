@@ -14,7 +14,7 @@ export default function getCharactersByDimension(dimensionName, dispatch) {
   fetchAPI(`/location?dimension=${dimensionName}`)
     .then(data => {
       const residents = data?.results[0]?.residents;
-      if (!residents || residents.length === 0) throw new Error('Empty resonse');
+      if (!residents || residents.length === 0) throw new Error('Empty response');
       const charactersId = getCharactersIdFromUrls(residents);
 
       fetchAPI(`/character/${charactersId.join(',')}`)

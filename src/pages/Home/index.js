@@ -15,7 +15,7 @@ export default function Home() {
 
   const [searchState, dispatchSearch] = React.useReducer(getDataReducer, {
     status: statusTypes.idle,
-    data: null,
+    data: [],
     error: null,
   });
 
@@ -43,7 +43,7 @@ export default function Home() {
     return (
       <div className="search-forms">
         <CharactersSearchForm
-          label="Search by dimension "
+          label="Search by dimension"
           inputExample="(e.g. Dimension C-137, Post-Apocalyptic Dimension, Replacement Dimension)"
           onChange={setDimensionField}
           value={dimensionField}

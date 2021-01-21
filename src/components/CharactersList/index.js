@@ -35,7 +35,7 @@ function List({ characters, title }) {
 }
 
 List.propTypes = {
-  characters: PropTypes.node.isRequired,
+  characters: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   title: PropTypes.string.isRequired,
 };
 
@@ -67,7 +67,7 @@ export default function CharactersList({ characters, status, title }) {
 CharactersList.propTypes = {
   characters: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.number,
     }),
   ).isRequired,
   title: PropTypes.string.isRequired,

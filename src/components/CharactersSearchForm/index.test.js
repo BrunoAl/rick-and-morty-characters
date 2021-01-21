@@ -6,7 +6,7 @@ import CharactersSearchForm from './index';
 const searchTerm = 'Random input value';
 
 describe('CharactersSearchForm', () => {
-  it('Should fill the input field and click submit ', () => {
+  it('should fill the input field and click submit ', () => {
     let inputValue = '';
     const handleSubmit = jest.fn();
     const handleChange = jest.fn(value => {
