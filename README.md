@@ -23,17 +23,10 @@ deployed version: https://zen-jones-533c85.netlify.app/
 - Jest
 - Styled components
 
-## How did I do it?
-
-- I created forms that can be used to enter a term to search for users. The API didn't support it natively, but I found a way to solve it combining two different endpoints for each call
-
-## Left Do-Tos
+## TODO
 
 - Create a better UI for the form to search the characters, maybe a tab component to render which one separately.
 - <del>Mock every API call and build integration tests to handle the search forms and characters list.</del> (DONE)
 - Paginate the characters list.
-- There's not enough contrast between the colors, since this is important for a11y, I would have chosen different colors for a production website
-
-## About the Plumbus
-
-https://rickandmorty.fandom.com/wiki/Plumbus
+- There's not enough contrast between the colors, since this is important for a11y, I would have chosen different colors for a production website.
+- Create a single function to fetch data.
